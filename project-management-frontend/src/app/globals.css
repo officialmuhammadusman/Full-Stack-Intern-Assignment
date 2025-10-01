@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-pending: var(--pending);
+  --color-pending-foreground: var(--pending-foreground);
+  --color-in-progress: var(--in-progress);
+  --color-in-progress-foreground: var(--in-progress-foreground);
+  --color-completed: var(--completed);
+  --color-completed-foreground: var(--completed-foreground);
+  --radius: var(--radius);
+}
+
+:root {
+  /* 🟤 Warm beige-gray base (easy on eyes) */
+  --background: hsl(40 20% 95%);
+  --foreground: hsl(0 0% 18%);
+  
+  /* Cards with pure white for elevation */
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(0 0% 18%);
+  
+  /* Popover elements */
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(0 0% 18%);
+  
+  /* 🟠 Warm coral orange primary (friendly & energizing) */
+  --primary: hsl(14 100% 67%);
+  --primary-foreground: hsl(0 0% 100%);
+  
+  /* 🍑 Soft peach secondary */
+  --secondary: hsl(33 100% 88%);
+  --secondary-foreground: hsl(14 85% 55%);
+  
+  /* Sophisticated muted tones with warmth */
+  --muted: hsl(40 15% 97%);
+  --muted-foreground: hsl(0 0% 43%);
+  
+  /* Soft peach accent */
+  --accent: hsl(33 100% 71%);
+  --accent-foreground: hsl(0 0% 18%);
+  
+  /* 🔴 Deep red destructive (distinguishable from coral) */
+  --destructive: hsl(0 79% 49%);
+  --destructive-foreground: hsl(0 0% 100%);
+  
+  /* ✅ Status colors */
+  --pending: hsl(48 93% 51%);
+  --pending-foreground: hsl(0 0% 18%);
+  
+  --in-progress: hsl(27 100% 65%);
+  --in-progress-foreground: hsl(0 0% 100%);
+  
+  --completed: hsl(122 39% 49%);
+  --completed-foreground: hsl(0 0% 100%);
+  
+  /* Subtle beige-gray borders */
+  --border: hsl(40 15% 88%);
+  --input: hsl(40 15% 88%);
+  --ring: hsl(14 100% 67%);
+  
+  /* Modern smooth radius */
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* Rich dark with warm undertones */
+  --background: hsl(30 8% 10%);
+  --foreground: hsl(40 20% 96%);
+  
+  /* Elevated dark surfaces */
+  --card: hsl(30 8% 14%);
+  --card-foreground: hsl(40 20% 96%);
+  
+  /* Dark popovers */
+  --popover: hsl(30 8% 14%);
+  --popover-foreground: hsl(40 20% 96%);
+  
+  /* Vibrant coral for dark mode */
+  --primary: hsl(14 100% 67%);
+  --primary-foreground: hsl(0 0% 100%);
+  
+  /* Warm secondary for dark */
+  --secondary: hsl(33 30% 22%);
+  --secondary-foreground: hsl(33 100% 75%);
+  
+  /* Dark muted tones */
+  --muted: hsl(30 8% 18%);
+  --muted-foreground: hsl(40 10% 60%);
+  
+  /* Peach accent for dark mode */
+  --accent: hsl(33 60% 35%);
+  --accent-foreground: hsl(33 100% 85%);
+  
+  /* Vibrant destructive for dark */
+  --destructive: hsl(0 79% 55%);
+  --destructive-foreground: hsl(0 0% 100%);
+  
+  /* Status colors for dark mode */
+  --pending: hsl(48 93% 55%);
+  --pending-foreground: hsl(30 8% 10%);
+  
+  --in-progress: hsl(27 100% 65%);
+  --in-progress-foreground: hsl(0 0% 100%);
+  
+  --completed: hsl(122 39% 55%);
+  --completed-foreground: hsl(0 0% 100%);
+  
+  /* Subtle dark borders */
+  --border: hsl(30 8% 22%);
+  --input: hsl(30 8% 22%);
+  --ring: hsl(14 100% 67%);
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', 'Nunito', 'Poppins', system-ui, -apple-system, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+  }
+}
+
+/* 🎨 Custom utility classes for status colors */
+@layer utilities {
+  .bg-pending {
+    background-color: hsl(var(--pending));
+    color: hsl(var(--pending-foreground));
+  }
+  
+  .bg-in-progress {
+    background-color: hsl(var(--in-progress));
+    color: hsl(var(--in-progress-foreground));
+  }
+  
+  .bg-completed {
+    background-color: hsl(var(--completed));
+    color: hsl(var(--completed-foreground));
+  }
+  
+  .text-pending {
+    color: hsl(var(--pending));
+  }
+  
+  .text-in-progress {
+    color: hsl(var(--in-progress));
+  }
+  
+  .text-completed {
+    color: hsl(var(--completed));
+  }
+  
+  .border-pending {
+    border-color: hsl(var(--pending));
+  }
+  
+  .border-in-progress {
+    border-color: hsl(var(--in-progress));
+  }
+  
+  .border-completed {
+    border-color: hsl(var(--completed));
+  }
+}
